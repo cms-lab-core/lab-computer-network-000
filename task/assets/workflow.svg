@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="820" viewBox="0 0 1600 820">
+<rect width="1600" height="820" fill="#fff"/>
+<style>
+text{font-family:'DejaVu Sans',Arial,sans-serif;fill:#202124}
+.title{font-size:34px;font-weight:700}
+.subtitle{font-size:20px;fill:#5f6368}
+.box{fill:#fff;stroke:#5f6368;stroke-width:3}
+.box-title{font-size:28px;font-weight:700}
+.box-sub{font-size:18px;fill:#5f6368}
+.arrow{stroke:#747b83;stroke-width:5;fill:none;marker-end:url(#arrow)}
+.status{font-size:24px;font-weight:700}
+.small{font-size:18px;fill:#5f6368}
+.packet{fill:#1a73e8;stroke:#0b57d0;stroke-width:2}
+.packet-text{fill:#fff;font-size:18px;font-weight:700}
+.highlight{fill:none;stroke:#1a73e8;stroke-width:7;opacity:0}
+.phase1{opacity:1}.phase2,.phase3,.phase4{opacity:0}
+@keyframes p1{0%,22%{opacity:1}23%,100%{opacity:0}}
+@keyframes p2{0%,23%{opacity:0}24%,46%{opacity:1}47%,100%{opacity:0}}
+@keyframes p3{0%,47%{opacity:0}48%,70%{opacity:1}71%,100%{opacity:0}}
+@keyframes p4{0%,71%{opacity:0}72%,92%{opacity:1}93%,100%{opacity:0}}
+@keyframes packetmove{
+0%,23%{transform:translate(650px,332px);opacity:0}
+24%{transform:translate(650px,332px);opacity:1}
+44%{transform:translate(950px,332px);opacity:1}
+46%{transform:translate(950px,332px);opacity:1}
+47%{opacity:0}
+93%,99%{transform:translate(650px,332px);opacity:0}
+100%{transform:translate(650px,332px);opacity:0}
+}
+@keyframes h1{0%,22%{opacity:1}23%,100%{opacity:0}}
+@keyframes h2{0%,23%{opacity:0}24%,46%{opacity:1}47%,100%{opacity:0}}
+@keyframes h3{0%,47%{opacity:0}48%,70%{opacity:1}71%,100%{opacity:0}}
+@keyframes h4{0%,71%{opacity:0}72%,92%{opacity:1}93%,100%{opacity:0}}
+.phase1{animation:p1 10s linear infinite}
+.phase2{animation:p2 10s linear infinite}
+.phase3{animation:p3 10s linear infinite}
+.phase4{animation:p4 10s linear infinite}
+.packet-run{animation:packetmove 10s linear infinite}
+.h1{opacity:1;animation:h1 10s linear infinite}
+.h2{animation:h2 10s linear infinite}
+.h3{animation:h3 10s linear infinite}
+.h4{animation:h4 10s linear infinite}
+</style>
+<defs>
+<marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+<path d="M0,0 L12,6 L0,12 z" fill="#747b83"/>
+</marker>
+</defs>
+<text class="title" x="800" y="58" text-anchor="middle">Один UX для всех лабораторных</text>
+<text class="subtitle" x="800" y="96" text-anchor="middle">prediction в notebook → действие на стенде → наблюдение → CHECK → break / diagnose / fix</text>
+<rect class="box" x="110" y="180" width="340" height="250" rx="24"/>
+<text class="box-title" x="280" y="240" text-anchor="middle">Notebook</text>
+<text class="box-sub" x="280" y="284" text-anchor="middle">вопросы и prediction</text>
+<text class="box-sub" x="280" y="322" text-anchor="middle">capture / PcapViewer</text>
+<text class="box-sub" x="280" y="360" text-anchor="middle">объяснение результата</text>
+<rect class="box" x="500" y="180" width="600" height="250" rx="24"/>
+<text class="box-title" x="800" y="240" text-anchor="middle">Реальный стенд</text>
+<rect class="box" x="565" y="285" width="170" height="95" rx="18"/>
+<text class="box-title" x="650" y="343" text-anchor="middle" font-size="24">pc1</text>
+<rect class="box" x="865" y="285" width="170" height="95" rx="18"/>
+<text class="box-title" x="950" y="343" text-anchor="middle" font-size="24">pc2</text>
+<line x1="735" y1="332" x2="865" y2="332" stroke="#747b83" stroke-width="6"/>
+<g class="packet-run">
+<rect class="packet" x="-42" y="-24" width="84" height="48" rx="10"/>
+<text class="packet-text" x="0" y="6" text-anchor="middle">ping</text>
+</g>
+<rect class="box" x="1150" y="180" width="340" height="250" rx="24"/>
+<text class="box-title" x="1320" y="240" text-anchor="middle">CHECK</text>
+<text class="box-sub" x="1320" y="284" text-anchor="middle">внешний оператор</text>
+<text class="box-sub" x="1320" y="322" text-anchor="middle">наблюдает состояние</text>
+<text class="box-sub" x="1320" y="360" text-anchor="middle">возвращает диагностику</text>
+<path class="arrow" d="M450 305 L500 305"/>
+<path class="arrow" d="M1100 305 L1150 305"/>
+<rect x="180" y="505" width="1240" height="155" rx="24" fill="#f8f9fa" stroke="#d0d7de" stroke-width="3"/>
+<g class="phase1">
+<text class="status" x="800" y="565" text-anchor="middle">1. PREDICT — сначала сформулируйте, что ожидаете увидеть</text>
+<text class="small" x="800" y="610" text-anchor="middle">Ответ записывается в отдельную Markdown-cell до эксперимента</text>
+</g>
+<g class="phase2">
+<text class="status" x="800" y="565" text-anchor="middle">2. ACT — выполните команду на настоящем узле</text>
+<text class="small" x="800" y="610" text-anchor="middle">В Lab 000 это простой ping между заранее настроенными pc1 и pc2</text>
+</g>
+<g class="phase3">
+<text class="status" x="800" y="565" text-anchor="middle">3. OBSERVE — capture показывает реальные пакеты интерфейса</text>
+<text class="small" x="800" y="610" text-anchor="middle">PCAP остаётся источником истины, а статический output сохраняется для HTML/PDF</text>
+</g>
+<g class="phase4">
+<text class="status" x="800" y="565" text-anchor="middle">4. CHECK → BREAK → DIAGNOSE → FIX</text>
+<text class="small" x="800" y="610" text-anchor="middle">Checker оценивает состояние стенда; после поломки сначала локализуем причину, затем исправляем</text>
+</g>
+<rect class="highlight h1" x="100" y="170" width="360" height="270" rx="30"/>
+<rect class="highlight h2" x="490" y="170" width="620" height="270" rx="30"/>
+<rect class="highlight h3" x="100" y="170" width="1010" height="270" rx="30"/>
+<rect class="highlight h4" x="1140" y="170" width="360" height="270" rx="30"/>
+<text class="small" x="800" y="735" text-anchor="middle">После финальной фазы временные элементы исчезают, и цикл начинается снова с prediction.</text>
+</svg>
